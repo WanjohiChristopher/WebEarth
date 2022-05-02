@@ -4,23 +4,27 @@
       <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
       <py-env>
         - numpy
+        - pandas
         - matplotlib
+        - paths:
+          - /data.py
       </py-env>
     </head>
 
   <body>
-    <h1>Let's plot random numbers</h1>
+    <h1>Plotting</h1>
     <div id="plot"></div>
     <py-script output="plot">
 import matplotlib.pyplot as plt
-import numpy as np
+import pandas as pd
+from data import make_x_and_y
+fig=plt.figure(figzize=(8,6))
+<!-- fig, ax = plt.subplots() -->
+<!-- ax.bar(x, y) -->
+plt.plot(x, y)
+plt.show()
+  
 
-x = np.random.randn(1000)
-y = np.random.randn(1000)
-
-fig, ax = plt.subplots()
-ax.scatter(x, y)
-fig
     </py-script>
   </body>
 </html>
